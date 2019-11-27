@@ -1,6 +1,8 @@
 package com.ojs.estudosspringmaven;
 
 
+import java.util.Collections;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -28,7 +30,7 @@ public class SwaggerConfig {
 	}
 	
 	private ApiInfo apiInfo() {
-		return new ApiInfo("Clientes", "Estudos java com spring-boot", "0.1.0", null, new Contact("Osdeni", null, "osdeni@gmail.com"), null, null, null);
+		return new ApiInfo("Clientes", "Estudos java com spring-boot", "0.1.0", null, new Contact("Osdeni", null, "osdeni@gmail.com"), null, null, Collections.emptyList());
 	}
 
 }
