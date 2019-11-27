@@ -8,8 +8,10 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.Errors;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,11 +23,17 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+
 import com.ojs.estudosspringmaven.models.Cliente;
 import com.ojs.estudosspringmaven.services.ClienteService;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+
 @RestController
 @RequestMapping("/clientes")
+@Validated
+@Api(value = "API Clientes")
 public class ClienteResource {
 
 	@Autowired
@@ -35,47 +43,33 @@ public class ClienteResource {
 		this.clienteService = clienteService;
 	}
 
-	@GetMapping
+	@GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
 	public List<Cliente> findAll() {
 		return this.clienteService.findAll();
 	}
 
-	@GetMapping("/{id}")
+	@GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
 	public Optional<Cliente> find(@PathVariable("id") Long id) {
 		return this.clienteService.find(id);
 	}
 
-	@PostMapping
+	@PostMapping(produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
-	public ResponseEntity<?> create(@Valid @RequestBody Cliente cliente, Errors errors) {
+	public ResponseEntity<?> create(@RequestBody Cliente cliente) {
 
 		if (!errors.hasErrors()) {
 			Cliente clienteCriado = this.clienteService.create(cliente);
 			return new ResponseEntity<Cliente>(clienteCriado, HttpStatus.CREATED);
 		}
 
-		// TODO abstração mais simples para renderizar tudo isso!
-		// TODO retorno em rest, deve ter algum padrão ou algo do tipo.
-		return ResponseEntity
-				.badRequest()
-				.body(errors
-						.getAllErrors()
-						.stream()
-						.map(msg -> {
-							return "O campo " + msg.getObjectName() + " - " + msg.getDefaultMessage();
-							}
-						)
-						.collect(Collectors.joining(", "))
-					);
+		return null;
 	}
 
-	@PutMapping("/{id}")
+	@PutMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
-	public Cliente update(@Valid @PathVariable("id") Long id, @RequestBody Cliente cliente, Errors errors) {
-		
-		
+	public Cliente update(@PathVariable("id") Long id, @RequestBody Cliente cliente) {
 		return this.clienteService.update(id, cliente);
 	}
 
