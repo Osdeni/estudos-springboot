@@ -25,14 +25,14 @@ public class Cliente {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@Column(length = 2, nullable = false)
-	@Enumerated(EnumType.STRING)
+	@Column(length = 2, nullable = false, name = "estado")
 	@NotNull
+	@Enumerated(EnumType.STRING)
 	private Estados estado;
 
 	@Column(length = 50, nullable = false, unique = true)
-	@NotEmpty(message = "Não deve ser nulo")
-	@NotBlank(message = "Não deve ser vazio")
+	@NotEmpty
+	@NotBlank
 	@Size(min = 3, max = 50)
 	private String cidade;
 	
