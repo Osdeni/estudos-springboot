@@ -9,3 +9,6 @@ senha: secret
 # Endpoints: 
 - http://localhost:8080/api/swagger-ui.html
 - http://localhost:8080/api/v2/api-docs
+
+# Monitoramento
+Com spring boot admin no projeto: https://github.com/Osdeni/sb-admin-monitoramento
