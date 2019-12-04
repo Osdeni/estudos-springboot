@@ -1,4 +1,4 @@
-package com.ojs.estudosspringmaven.util.error;
+package com.ojs.estudosspringmaven.config.exception;
 
 public class ErroFormDto {
 

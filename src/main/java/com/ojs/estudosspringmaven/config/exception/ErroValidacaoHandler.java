@@ -1,4 +1,4 @@
-package com.ojs.estudosspringmaven.util.error;
+package com.ojs.estudosspringmaven.config.exception;
 
 import java.util.ArrayList;
 import java.util.List;

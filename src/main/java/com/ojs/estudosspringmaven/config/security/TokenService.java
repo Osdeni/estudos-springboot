@@ -1,4 +1,4 @@
-package com.ojs.estudosspringmaven.security;
+package com.ojs.estudosspringmaven.config.security;
 
 import java.util.Date;
 

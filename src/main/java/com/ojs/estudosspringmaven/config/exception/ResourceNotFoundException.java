@@ -1,4 +1,4 @@
-package com.ojs.estudosspringmaven.exception;
+package com.ojs.estudosspringmaven.config.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
