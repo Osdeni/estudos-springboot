@@ -33,13 +33,14 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import com.ojs.estudosspringmaven.exception.ResourceNotFoundException;
+import com.ojs.estudosspringmaven.config.exception.ResourceNotFoundException;
 import com.ojs.estudosspringmaven.models.Cliente;
 import com.ojs.estudosspringmaven.services.ClienteService;
 import com.ojs.estudosspringmaven.util.Estados;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 
 @RestController
 @RequestMapping("/clientes")

@@ -13,9 +13,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.ojs.estudosspringmaven.config.security.TokenService;
 import com.ojs.estudosspringmaven.resources.dto.LoginForm;
 import com.ojs.estudosspringmaven.resources.dto.TokenDto;
-import com.ojs.estudosspringmaven.security.TokenService;
 
 @RestController
 @RequestMapping("/autenticar")

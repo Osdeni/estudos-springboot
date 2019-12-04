@@ -1,4 +1,4 @@
-package com.ojs.estudosspringmaven.security;
+package com.ojs.estudosspringmaven.config.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -39,6 +39,7 @@ public class SecurityConfigurations extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests()
+			.antMatchers(HttpMethod.GET, "/actuator/**").permitAll()
 			.antMatchers(HttpMethod.POST, "/autenticar").permitAll()
 			.anyRequest().authenticated()
 			.and().csrf().disable()
@@ -50,7 +51,7 @@ public class SecurityConfigurations extends WebSecurityConfigurerAdapter {
 	// recursos estáticos
 	@Override
 	public void configure(WebSecurity web) throws Exception {
-		
+		web.ignoring().antMatchers("/**.html", "/v2/api-docs", "/webjars/**", "/configuration/**", "/swagger-resources/**");
 	}
 
 	@Override

@@ -1,13 +1,17 @@
 package com.ojs.estudosspringmaven.models;
 
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
@@ -35,7 +39,10 @@ public class Cliente {
 	@NotBlank
 	@Size(min = 3, max = 50)
 	private String cidade;
-	
+
+	@OneToMany(mappedBy = "cliente", fetch = FetchType.LAZY)
+	private Set<ClienteDados> dados = new HashSet<ClienteDados>();
+
 	public Long getId() {
 		return id;
 	}
@@ -59,4 +66,13 @@ public class Cliente {
 	public void setCidade(String cidade) {
 		this.cidade = cidade;
 	}
+
+	public Set<ClienteDados> getDados() {
+		return dados;
+	}
+
+	public void setDados(Set<ClienteDados> dados) {
+		this.dados = dados;
+	}
+
 }
