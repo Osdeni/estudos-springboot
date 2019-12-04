@@ -8,3 +8,8 @@ INSERT INTO clientes (estado, cidade) VALUES ('SC', 'Criciúma');
 INSERT INTO clientes (estado, cidade) VALUES ('SC', 'Içara');
 INSERT INTO clientes (estado, cidade) VALUES ('SC', 'Forquilhinha');
 INSERT INTO clientes (estado, cidade) VALUES ('SC', 'Araranguá');
+
+INSERT INTO cliente_dados (tipo, chave, valor, cliente_Id) VALUES ('CONTATO', 'Celular', '(DDD) NNNNN-NNNN', 1);
+INSERT INTO cliente_dados (tipo, chave, valor, cliente_Id) VALUES ('CONTATO', 'E-mail', 'osdeni@gmail.com', 1);
+INSERT INTO cliente_dados (tipo, chave, valor, cliente_Id) VALUES ('ACESSO', 'SSH', 'ssh root@ip.com', 1);
+INSERT INTO cliente_dados (tipo, chave, valor, cliente_Id) VALUES ('ACESSO', 'Redis', 'AUTH 123456', 1);
