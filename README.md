@@ -12,3 +12,6 @@ senha: secret
 
 # Monitoramento
 Com spring boot admin no projeto: https://github.com/Osdeni/sb-admin-monitoramento
+
+# Documentação da api 
+Utilizando o Swagger
